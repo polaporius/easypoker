@@ -15,6 +15,91 @@
 	<title>Poker</title>
 	<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src='https://vk.com/js/api/openapi.js?169',t.onload=function(){VK.Retargeting.Init("VK-RTRG-1293921-afUoc"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><noscript><img src="https://vk.com/rtrg?p=VK-RTRG-1293921-afUoc" style="position:fixed; left:-999px;" alt=""/></noscript>
 
+	<script type="text/javascript">
+		(function(e,t){var n=e.amplitude||{_q:[],_iq:{}};var r=t.createElement("script")
+		;r.type="text/javascript"
+		;r.integrity="sha384-+EO59vL/X7v6VE2s6/F4HxfHlK0nDUVWKVg8K9oUlvffAeeaShVBmbORTC2D3UF+"
+		;r.crossOrigin="anonymous";r.async=true
+		;r.src="https://cdn.amplitude.com/libs/amplitude-8.17.0-min.gz.js"
+		;r.onload=function(){if(!e.amplitude.runQueuedFunctions){
+		console.log("[Amplitude] Error: could not load SDK")}}
+		;var i=t.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i)
+		;function s(e,t){e.prototype[t]=function(){
+		this._q.push([t].concat(Array.prototype.slice.call(arguments,0)));return this}}
+		var o=function(){this._q=[];return this}
+		;var a=["add","append","clearAll","prepend","set","setOnce","unset","preInsert","postInsert","remove"]
+		;for(var c=0;c<a.length;c++){s(o,a[c])}n.Identify=o;var u=function(){this._q=[]
+		;return this}
+		;var l=["setProductId","setQuantity","setPrice","setRevenueType","setEventProperties"]
+		;for(var p=0;p<l.length;p++){s(u,l[p])}n.Revenue=u
+		;var d=["init","logEvent","logRevenue","setUserId","setUserProperties","setOptOut","setVersionName","setDomain","setDeviceId","enableTracking","setGlobalUserProperties","identify","clearUserProperties","setGroup","logRevenueV2","regenerateDeviceId","groupIdentify","onInit","logEventWithTimestamp","logEventWithGroups","setSessionId","resetSessionId"]
+		;function v(e){function t(t){e[t]=function(){
+		e._q.push([t].concat(Array.prototype.slice.call(arguments,0)))}}
+		for(var n=0;n<d.length;n++){t(d[n])}}v(n);n.getInstance=function(e){
+		e=(!e||e.length===0?"$default_instance":e).toLowerCase()
+		;if(!Object.prototype.hasOwnProperty.call(n._iq,e)){n._iq[e]={_q:[]};v(n._iq[e])
+		}return n._iq[e]};e.amplitude=n})(window,document);
+	  
+		amplitude.getInstance().init("ad19a69f4bb7fa90af7b0b1b61646a55");
+
+
+		function openTg() {
+			amplitude.getInstance().logEvent('easypoker_link');
+			var url = "https://t.me/easypokerbot";
+			$(location).attr('href',url);
+		}
+	  </script>
+
+
+<script>
+	// 2. This code loads the IFrame Player API code asynchronously.
+	var tag = document.createElement('script');
+
+	tag.src = "https://www.youtube.com/iframe_api";
+	var firstScriptTag = document.getElementsByTagName('script')[0];
+	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+	// 3. This function creates an <iframe> (and YouTube player)
+	//    after the API code downloads.
+	var player;
+	function onYouTubeIframeAPIReady() {
+	  player = new YT.Player('player', {
+		height: '490',
+		width: '100%',
+		videoId: 'QTSbUGxBhwk',
+		playerVars: {
+		  'playsinline': 1
+		},
+		events: {
+		  'onReady': onPlayerReady,
+		  'onStateChange': onPlayerStateChange
+		}
+	  });
+	}
+
+	// 4. The API will call this function when the video player is ready.
+	function onPlayerReady(event) {
+	  event.target.playVideo();
+	}
+
+	// 5. The API calls this function when the player's state changes.
+	//    The function indicates that when playing a video (state=1),
+	//    the player should play for six seconds and then stop.
+	var done = false;
+	function onPlayerStateChange(event) {
+		if(event.data == 1){
+			amplitude.getInstance().logEvent('play_video');
+		}
+
+	  if (event.data == YT.PlayerState.PLAYING && !done) {
+		setTimeout(stopVideo, 6000);
+		done = true;
+	  }
+	}
+	function stopVideo() {
+	  player.stopVideo();
+	}
+  </script>
 </head>
 <body>
 <header class="container mob-hide">
@@ -88,7 +173,7 @@
 				<!--<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
 					забери бонус
 				</button>-->
-				<button type="button" class="btn btn-primary mob-visible" id="link">
+				<button type="button" onclick="amplitude.getInstance().logEvent('get_bonus')" class="btn btn-primary mob-visible" id="link">
 					Получить бонус
 				</button>
 			</div>
@@ -186,9 +271,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-12 col-lg-8">
-			<iframe width="100%" height="490" src="https://www.youtube.com/embed/QTSbUGxBhwk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		</div>
+		<div id="player" class="col-12 col-lg-8"></div>
 	</div>
 </section>
 <section class="container spec-offers" id="special">
@@ -228,7 +311,7 @@
 	<div class="row">
 		<div class="col-12 col-lg-6 offset-lg-2">
 			<h2>Начать  играть:</h2>
-			<a href="https://t.me/easypokerbot">@easypoker</a>
+			<a href="#" onclick="openTg();">@easypoker</a>
 		</div>
 		<div class="col-12 second-bg-mob">
 			<img src="img/second_bg.svg" alt="second-bg">
