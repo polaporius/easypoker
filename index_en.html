@@ -12,7 +12,9 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
 	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+	<title>Poker</title>
 
+	<script>function getUclick(){var e=document.cookie.match(new RegExp("(?:^|; )uclick=([^;]*)"));return e?decodeURIComponent(e[1]):void 0}function fxOfLnks(){var e=getUclick();if(void 0===e)return!1;for(var n=document.getElementsByTagName("a"),t=0;t<n.length;t++){var i=n[t].getAttribute("href");"string"==typeof i&&(-1==i.indexOf("&event")&&-1==i.indexOf("?event")&&-1==i.indexOf("?lp=1")&&-1==i.indexOf("?lp=data_upd")&&-1==i.indexOf("?cnv_id=OPTIONAL")||(n[t].href=i+"&uclick="+e))}for(var k=document.querySelectorAll('[data-href]'),t=0;t<k.length;t++){var i=k[t].dataset.href;"string"==typeof i&&(-1==i.indexOf("&event")&&-1==i.indexOf("?event")&&-1==i.indexOf("?lp=1")&&-1==i.indexOf("?lp=data_upd")&&-1 == i.indexOf("?cnv_id=OPTIONAL")||(k[t].dataset.href=i+"&uclick="+e))}}function sendLpPixel(){var e=window.location.search;0===e.indexOf("?")&&(e=e.substr(1,e.length));var n="https://appbot.me/click.php?key=ujo6qk595m3iqvyfhnxw&lp_type=pixel"+(e?"&"+e:""),t=document.createElement("script");t.async=!1,t.src=n,document.head.appendChild(t),t.onload=function(){window.lp_pixel_wait_flag=!1,"loading"===document.readyState?(document.addEventListener("DOMContentLoaded",fxOfLnks),"function"==typeof window.lp_pixel_callback&&document.addEventListener("DOMContentLoaded",function(){window.lp_pixel_callback(window.tokens)})):(fxOfLnks(),"function"==typeof window.lp_pixel_callback&&window.lp_pixel_callback(window.tokens))}}sendLpPixel();</script>
 	<script type="text/javascript">
 		(function(e,t){var n=e.amplitude||{_q:[],_iq:{}};var r=t.createElement("script")
 		;r.type="text/javascript"
@@ -39,11 +41,17 @@
 		}return n._iq[e]};e.amplitude=n})(window,document);
 	  
 		amplitude.getInstance().init("ad19a69f4bb7fa90af7b0b1b61646a55");
+		function getUclick() {
+        	var e = document.cookie.match(new RegExp("(?:^|; )uclick=([^;]*)"));
+    	    return e ? decodeURIComponent(e[1]) : void 0
+	    }
 
-
-		function openTg() {
+		function openUrl(toGo) {
+			var url = new URL(window.location.href);
+			var uclick = url.searchParams.get("clickid");
+			
 			amplitude.getInstance().logEvent('easypoker_link');
-			var url = "https://t.me/easypokerbot";
+			var url = toGo+uclick;
 			$(location).attr('href',url);
 		}
 	  </script>
@@ -104,8 +112,8 @@
 <header class="container mob-hide">
 	<div class="languag text-end">
 		<div>
-			<a href="/index_en.html"><img src="img/en.svg" alt="EN" class=""></a>
-			<a href="/index.html"><img src="img/rruflag.svg" alt="RU"></a>
+			<a href="#" onclick='openUrl("/index_en.html?clickid=")'><img src="img/en.svg" alt="EN" class=""></a>
+			<a href="#" onclick='openUrl("/?clickid=")'><img src="img/ruflag.svg" alt="RU"></a>
 		</div>
 		<!--<div>
 			<select class="select-events">
@@ -151,8 +159,8 @@
 			<img src="img/logo.svg" alt="EasyPoker">
 		</div>
 		<div class="col-4 languag">
-			<a href="/index_en.html"><img src="img/en.svg" alt="EN" class=""></a>
-			<a href="/index.html"><img src="img/ruflag.svg" alt="RU"></a>
+			<a href="#" onclick='openUrl("/index_en.html?clickid=")'><img src="img/en.svg" alt="EN" class=""></a>
+			<a href="#" onclick='openUrl("/?clickid=")'><img src="img/ruflag.svg" alt="RU"></a>
 		</div>
 	</div>
 </header>
@@ -310,7 +318,7 @@
 	<div class="row">
 		<div class="col-12 col-lg-6 offset-lg-2">
 			<h2>Start playing:</h2>
-			<a href="#" onclick="openTg();">@easypoker</a>
+			<a href="#" onclick='openUrl("https://t.me/easypokerbot?start=")'>@easypoker</a>
 		</div>
 		<div class="col-12 second-bg-mob">
 			<img src="img/second_bg.svg" alt="second-bg">
@@ -409,7 +417,10 @@
 	});
 	
 	$('#link').click(function() {
-		var url = "https://t.me/easypokerbot";
+		var url = new URL(window.location.href);
+		var uclick = url.searchParams.get("clickid");
+		var url = "https://t.me/easypokerbot?start="+uclick;
+
 		$(location).attr('href',url);
 	});
 	
