@@ -47,13 +47,18 @@
         	var e = document.cookie.match(new RegExp("(?:^|; )uclick=([^;]*)"));
     	    return e ? decodeURIComponent(e[1]) : void 0
 	    }
+		var uclickId = '';
+
+		function lp_pixel_callback(tokens) {
+			uclickId = tokens.clickid;
+    	}
 
 		function openUrl(toGo) {
-			var url = new URL(window.location.href);
-			var uclick = url.searchParams.get("clickid");
+//			var url = new URL(window.location.href);
+//			var uclick = url.searchParams.get("clickid");
 			
 			amplitude.getInstance().logEvent('easypoker_link');
-			var url = toGo+uclick;
+			var url = uclickId != '' ? toGo+uclickId : toGo;
 			$(location).attr('href',url);
 		}
 	  </script>
@@ -125,6 +130,7 @@
 	</div>
 	<div class="row">
 		<div class="col-10 col-lg-6 logo">
+
 			<img src="img/logo.svg" alt="EasyPoker">
 		</div>
 		<nav class="col-2 col-lg-6">
@@ -169,6 +175,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-12 col-lg-7">
+				<p>
+					Your device is <span class="device_name_1"></span>
+				</p>
 				<h1>лучшие клубы со всего мира в паре кликов от тебя!</h1>
 				<div class="flags">
 					<div><img src="img/BRflag.svg" alt="BR"></div>
@@ -419,11 +428,7 @@
 	});
 	
 	$('#link').click(function() {
-		var url = new URL(window.location.href);
-		var uclick = url.searchParams.get("clickid");
-		var url = "https://t.me/easypokerbot?start="+uclick;
-
-		$(location).attr('href',url);
+		openUrl("https://t.me/easypokerbot?start=");
 	});
 	
 </script>	

@@ -46,12 +46,18 @@
     	    return e ? decodeURIComponent(e[1]) : void 0
 	    }
 
+		var uclickId = '';
+
+		function lp_pixel_callback(tokens) {
+			uclickId = tokens.clickid;
+    	}
+
 		function openUrl(toGo) {
-			var url = new URL(window.location.href);
-			var uclick = url.searchParams.get("clickid");
+//			var url = new URL(window.location.href);
+//			var uclick = url.searchParams.get("clickid");
 			
 			amplitude.getInstance().logEvent('easypoker_link');
-			var url = toGo+uclick;
+			var url = uclickId != '' ? toGo+uclickId : toGo;
 			$(location).attr('href',url);
 		}
 	  </script>
@@ -417,11 +423,7 @@
 	});
 	
 	$('#link').click(function() {
-		var url = new URL(window.location.href);
-		var uclick = url.searchParams.get("clickid");
-		var url = "https://t.me/easypokerbot?start="+uclick;
-
-		$(location).attr('href',url);
+		openUrl("https://t.me/easypokerbot?start=");
 	});
 	
 </script>	
