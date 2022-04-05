@@ -14,7 +14,14 @@
 	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
 	<title>Poker</title>
 	<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src='https://vk.com/js/api/openapi.js?169',t.onload=function(){VK.Retargeting.Init("VK-RTRG-1293921-afUoc"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><noscript><img src="https://vk.com/rtrg?p=VK-RTRG-1293921-afUoc" style="position:fixed; left:-999px;" alt=""/></noscript>
-	<script>function getUclick(){var e=document.cookie.match(new RegExp("(?:^|; )uclick=([^;]*)"));return e?decodeURIComponent(e[1]):void 0}function fxOfLnks(){var e=getUclick();if(void 0===e)return!1;for(var n=document.getElementsByTagName("a"),t=0;t<n.length;t++){var i=n[t].getAttribute("href");"string"==typeof i&&(-1==i.indexOf("&event")&&-1==i.indexOf("?event")&&-1==i.indexOf("?lp=1")&&-1==i.indexOf("?lp=data_upd")&&-1==i.indexOf("?cnv_id=OPTIONAL")||(n[t].href=i+"&uclick="+e))}for(var k=document.querySelectorAll('[data-href]'),t=0;t<k.length;t++){var i=k[t].dataset.href;"string"==typeof i&&(-1==i.indexOf("&event")&&-1==i.indexOf("?event")&&-1==i.indexOf("?lp=1")&&-1==i.indexOf("?lp=data_upd")&&-1 == i.indexOf("?cnv_id=OPTIONAL")||(k[t].dataset.href=i+"&uclick="+e))}}function sendLpPixel(){var e=window.location.search;0===e.indexOf("?")&&(e=e.substr(1,e.length));var n="https://appbot.me/click.php?key=ujo6qk595m3iqvyfhnxw&lp_type=pixel"+(e?"&"+e:""),t=document.createElement("script");t.async=!1,t.src=n,document.head.appendChild(t),t.onload=function(){window.lp_pixel_wait_flag=!1,"loading"===document.readyState?(document.addEventListener("DOMContentLoaded",fxOfLnks),"function"==typeof window.lp_pixel_callback&&document.addEventListener("DOMContentLoaded",function(){window.lp_pixel_callback(window.tokens)})):(fxOfLnks(),"function"==typeof window.lp_pixel_callback&&window.lp_pixel_callback(window.tokens))}}sendLpPixel();</script>
+	<script>function getUclick(){var e=document.cookie.match(new RegExp("(?:^|; )uclick=([^;]*)"));return e?decodeURIComponent(e[1]):void 0}function fxOfLnks(){var e=getUclick();if(void 0===e)return!1;for(var n=document.getElementsByTagName("a"),t=0;t<n.length;t++){var i=n[t].getAttribute("href");"string"==typeof i&&(-1==i.indexOf("&event")&&-1==i.indexOf("?event")&&-1==i.indexOf("?lp=1")&&-1==i.indexOf("?lp=data_upd")&&-1==i.indexOf("?cnv_id=OPTIONAL")||(n[t].href=i+"&uclick="+e))}for(var k=document.querySelectorAll('[data-href]'),t=0;t<k.length;t++){var i=k[t].dataset.href;"string"==typeof i&&(-1==i.indexOf("&event")&&-1==i.indexOf("?event")&&-1==i.indexOf("?lp=1")&&-1==i.indexOf("?lp=data_upd")&&-1 == i.indexOf("?cnv_id=OPTIONAL")||(k[t].dataset.href=i+"&uclick="+e))}}function sendLpPixel(){var e=window.location.search;0===e.indexOf("?")&&(e=e.substr(1,e.length));
+	
+			var url = new URL(window.location.href);
+			var trafSrc = url.searchParams.get("src");
+			var mkey = 'r9uhn8c54ihku5w7iyib';
+			const trackSrc = new Map([ ["mt", 'ujo6qk595m3iqvyfhnxw'],["vk", 'vp70zsvvvyu7ry3tmmgk']]);
+			if(trackSrc.get(url.searchParams.get("src")) != undefined) { mkey = trackSrc.get(url.searchParams.get("src")) };
+			var n="https://appbot.me/click.php?key="+mkey+"&lp_type=pixel"+(e?"&"+e:""),t=document.createElement("script");t.async=!1,t.src=n,document.head.appendChild(t),t.onload=function(){window.lp_pixel_wait_flag=!1,"loading"===document.readyState?(document.addEventListener("DOMContentLoaded",fxOfLnks),"function"==typeof window.lp_pixel_callback&&document.addEventListener("DOMContentLoaded",function(){window.lp_pixel_callback(window.tokens)})):(fxOfLnks(),"function"==typeof window.lp_pixel_callback&&window.lp_pixel_callback(window.tokens))}}sendLpPixel();</script>
 
 	<script type="text/javascript">
 		(function(e,t){var n=e.amplitude||{_q:[],_iq:{}};var r=t.createElement("script")
@@ -53,17 +60,36 @@
 			uclickId = tokens.clickid;
     	}
 
+		function trackEvent(evName) {
+			amplitude.getInstance().logEvent(evName);
+			ym(88163595,'reachGoal',evName);
+		}
+
 		function openUrl(toGo) {
 //			var url = new URL(window.location.href);
 //			var uclick = url.searchParams.get("clickid");
 			
-			amplitude.getInstance().logEvent('easypoker_link');
+			trackEvent('easypoker_link');
 			var url = uclickId != '' ? toGo+uclickId : toGo;
 			$(location).attr('href',url);
 		}
 	  </script>
 
-
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+	(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+	m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+	(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+	ym(88163595, "init", {
+		 clickmap:true,
+		 trackLinks:true,
+		 accurateTrackBounce:true,
+		 webvisor:true
+	});
+ </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/88163595" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ <!-- /Yandex.Metrika counter -->
 <script>
 	// 2. This code loads the IFrame Player API code asynchronously.
 	var tag = document.createElement('script');
@@ -101,7 +127,7 @@
 	var done = false;
 	function onPlayerStateChange(event) {
 		if(event.data == 1){
-			amplitude.getInstance().logEvent('play_video');
+			trackEvent('play_video');
 		}
 
 	  if (event.data == YT.PlayerState.PLAYING && !done) {
@@ -187,7 +213,7 @@
 				<!--<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
 					забери бонус
 				</button>-->
-				<button type="button" onclick="amplitude.getInstance().logEvent('get_bonus')" class="btn btn-primary mob-visible" id="link">
+				<button type="button" onclick="trackEvent('get_bonus')" class="btn btn-primary mob-visible" id="link">
 					Получить бонус
 				</button>
 			</div>
