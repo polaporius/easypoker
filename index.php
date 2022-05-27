@@ -173,10 +173,10 @@
 		<div class="col-8 logo">
 			<img src="img/logo.svg" alt="EasyPoker">
 		</div>
-		<div class="col-4 languag">
+		<!--<div class="col-4 languag">
 			<a href="#" onclick='openUrl("epokRuLand_toEn","https://easypoker.online/index_en.html?clickid={clickid}")'><img src="img/en.svg" alt="EN" class=""></a>
 			<a href="#" onclick='openUrl("epokRuLand_toRu","https://easypoker.online/?clickid={clickid}")'><img src="img/ruflag.svg" alt="RU"></a>
-		</div>
+		</div>-->
 	</div>
 </header>
 <section class="banner">
