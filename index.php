@@ -125,10 +125,10 @@
 <body>
 <header class="container mob-hide">
 	<div class="languag text-end">
-		<div>
+		<!--<div>
 			<a href="#" onclick='openUrl("epokRuLand_toEn","https://easypoker.online/index_en.html?clickid={clickid}")'><img src="img/en.svg" alt="EN" class=""></a>
 			<a href="#" onclick='openUrl("epokRuLand_toRu","https://easypoker.online/?clickid={clickid}")'><img src="img/ruflag.svg" alt="RU"></a>
-		</div>
+		</div>-->
 		<!--<div>
 			<select class="select-events">
 				<option class="en-flag" value="/index.html">RU</option>
@@ -189,15 +189,18 @@
 					case 1:
 						echo 'Больше раздач с тем же депозитом! За счёт ежедневного рейкбека до 80%!';
 				        break;
-				    case 2:
+				  case 2:
 						echo '+30% к своему депозиту за счет рейкбека!';
 				        break;
 					case 3:
 						echo '+30% к каждому твоему депозиту за счёт ежедневного рейкбека до 80%!';
-						break;
-					default:
+								break;
+					case 4:
 						echo 'Играй дольше на 30% за счёт ежедневного рейкбека до 80%!';
-						break;
+								break;
+					default:
+						echo 'Убойный ежедневный рейкбек до 80%! Ещё больше эмоций с тем же депозитом!';
+								break;
 			 	} 
 			?>
 
